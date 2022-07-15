@@ -1,10 +1,18 @@
 import { MyName } from "@/shared/components/name"
-import { Box } from "@chakra-ui/react"
+import styled from "styled-components"
+
+const StyledDiv = styled.div`
+  height: 100vh;
+  padding: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 export const MainPage = () => {
   return (
-    <Box h='100vh' p='10vw' display='flex' alignItems='center' justifyContent='center'>
+    <StyledDiv>
       <MyName />
-    </Box>
+    </StyledDiv>
   )
 }

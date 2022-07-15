@@ -1,8 +1,9 @@
-import { Fade, Heading } from "@chakra-ui/react"
 import React, { ReactElement, useCallback, useEffect, useRef, useState } from "react"
 import { Letter } from "./letter"
+import { Heading } from "./styled"
 
 const myName = "E_Litvinov"
+
 
 export const MyName = (): ReactElement => {
   const [typeCount, setTypeCount] = useState<number>(0)
@@ -28,47 +29,11 @@ export const MyName = (): ReactElement => {
 
   return (
     <>
-      <Fade in={!!typeCount}>
-        <Heading
-          px='2'
-          position='relative'
-          display='flex'
-          cursor='default'
-          fontSize='9xl'
-          transform='skewY(-15deg)'
-          background='linear-gradient(90deg, hsla(157, 79%, 62%, 1) 0%, hsla(63, 100%, 63%, 1) 97%)'
-          _before={{
-            content: "\"\"",
-            position: "absolute",
-            width: "10vw",
-            transformOrigin: "right",
-            height: "100%",
-            left: "-10vw",
-            transform: "skewY(45deg)",
-            filter: "brightness(0.8)",
-            background:
-              "linear-gradient(90deg, hsla(157, 79%, 62%, 1) 0%, hsla(63, 100%, 63%, 1) 97%)",
-          }}
-          _after={{
-            content: "\"\"",
-            position: "absolute",
-            width: "100%",
-            transformOrigin: "bottom",
-            height: "10vw",
-            top: "-10vw",
-            left: 0,
-            transform: "skewX(45deg)",
-            filter: "brightness(0.85)",
-            background:
-              "linear-gradient(90deg, hsla(157, 79%, 62%, 1) 0%, hsla(63, 100%, 63%, 1) 97%)",
-            boxShadow: "-30vw 30vw 20px rgba(0,0,0,.1)",
-          }}
-        >
-          {[...myName.substring(0, typeCount)].map((letter, idx) => (
-            <Letter key={idx + letter} letter={letter} idx={idx} />
-          ))}
-        </Heading>
-      </Fade>
+      <Heading>
+        {[...myName.substring(0, typeCount)].map((letter, idx) => (
+          <Letter key={idx + letter} letter={letter} idx={idx} />
+        ))}
+      </Heading>
     </>
   )
 }
